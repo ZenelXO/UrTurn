@@ -1,0 +1,200 @@
+/* ======================================================================
+   File: signup.css – standalone stylesheet for the “Sign up to U-Turn” page
+   v4 – Card-style dark container with border; back arrow fixed top‑left; content centered
+   ====================================================================== */
+
+   :root {
+    --bg: #2b2b2b;
+    --bg-dark:  #2b2b2b;
+    --text-dark: #0f0f0f;
+    --text-light: #ffffff;
+    --muted: #6b7280;
+    --border: #444444;;
+    --radius: 0.65rem;
+  
+    /* Brand colour */
+    --brand: #7d4dff;
+    --brand-dark: #562bd1;
+  
+    /* Social button bg */
+    --social-bg: #f3f4f6;
+  }
+  
+  /* ---------------- Reset & base ---------------- */
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  /* ---------------- Wrapper (card) ---------------- */
+  .signup-wrapper {
+    width: 100%;
+    max-width: 360px;
+    text-align: left;
+  
+    /* NEW: card visuals */
+    padding: 2rem 1.75rem 2.25rem;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  
+    color: var(--text-light); /* inherit white text inside */
+  }
+  
+  /* ensure nested headings & labels adopt light color */
+  .signup-wrapper h1   { color: var(--text-light); }
+  .signup-wrapper label{ color: var(--text-light); }
+  
+  /* ---------------- Back link ---------------- */
+  .back-link {
+    position: fixed;
+    top: 1.25rem;
+    left: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  /* ---------------- Heading ---------------- */
+  h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0 0 1.75rem;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+  
+  /* ---------------- Phone group ---------------- */
+  .phone-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .phone-group select,
+  .phone-group input {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-light);
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: var(--radius);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .phone-group select {
+    appearance: none;
+    cursor: pointer;
+    min-width: 78px;
+    flex: 0 0 auto;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg' fill='%236b7280'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 10px 6px;
+    padding-right: 2rem;
+  }
+  
+  .phone-group input { flex: 1 1 auto; }
+  
+  .phone-group select:focus,
+  .phone-group input:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(125, 77, 255, 0.25);
+  }
+  
+  /* ---------------- Continue button ---------------- */
+  .btn-continue {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    border-radius: var(--radius);
+    background: var(--brand);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+  
+  .btn-continue:hover  { background: var(--brand-dark); }
+  .btn-continue:active { transform: scale(0.97);          }
+  
+  /* ---------------- Divider ---------------- */
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 1.25rem 0;
+  }
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--border);
+  }
+  .divider span {
+    margin: 0 0.75rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  
+  /* ---------------- Social buttons ---------------- */
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .flex-row > div > label {
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
+  }
+  
+  .btn {
+    margin-top: 15px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+    border: 1px solid #ededef;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  .social-btn.google   { background-image: url("../icons/google.svg");   }
+  .social-btn.facebook { background-image: url("../icons/facebook.svg"); }
+  
+  /* ---------------- Disabled / loading ---------------- */
+  .btn-continue[disabled] { background: rgba(125, 77, 255, 0.4); cursor: default; }
+  .btn-continue.loading::after { content: "…"; }
