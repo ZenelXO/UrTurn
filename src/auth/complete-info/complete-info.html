@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete your info</title>
+  <link rel="stylesheet" href="../../../styles-sheets/auth/complete-info/complete-info.css">
+</head>
+<body>
+
+  <a href="#" class="back-link">← Back</a>
+
+  <main class="info-wrapper">
+    <h1>Complete your info</h1>
+
+    <!-- nombres -->
+    <label for="first">First Name</label>
+    <input id="first" type="text" placeholder="First Name" required>
+
+    <label for="last">Last Name</label>
+    <input id="last" type="text" placeholder="Last Name" required>
+
+    <!-- teléfono -->
+    <label>Phone Number</label>
+    <div class="row phone-group">
+      <select>
+        <option>🇺🇸 +1</option>
+        <option>🇪🇸 +34</option>
+      </select>
+      <input type="tel" placeholder="9194144977" required>
+    </div>
+
+    <!-- fecha -->
+    <label for="dob">Date of Birth</label>
+    <input id="dob" type="date" required>
+
+    <!-- país / estado -->
+    <div class="row">
+      <div class="col">
+        <label>Country</label>
+        <select><option>Choose country</option></select>
+      </div>
+      <div class="col">
+        <label>State</label>
+        <select><option>Choose state</option></select>
+      </div>
+    </div>
+
+    <!-- ciudad / zip -->
+    <div class="row">
+      <div class="col">
+        <label>City</label>
+        <input type="text" placeholder="City" required>
+      </div>
+      <div class="col">
+        <label>ZIP</label>
+        <input type="text" placeholder="zip" required>
+      </div>
+    </div>
+
+    <!-- tos -->
+    <label class="tos">
+      <input type="checkbox" required>
+      By selecting Next, I agree to U-Turn terms of service, Payment Terms of Service & Privacy Policy.
+    </label>
+
+    <!-- botón -->
+    <button class="btn-next">Next</button>
+  </main>
+
+</body>
+</html>
