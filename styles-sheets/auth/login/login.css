@@ -1,0 +1,161 @@
+/* ------------------
+   Login form styles
+   ------------------ */
+
+/* ----------
+   Variables
+   ---------- */
+   :root {
+    --bg: #2b2b2b;
+    --text: #ffffff;
+    --muted: #9ca3af;
+    --input-dark: #323232;
+    --input-light: #ffffff;
+    --border: #444444;
+    --accent: #ff8c00;
+    --accent-hover: #e57c00;
+    --radius: 0.5rem;
+  }
+  
+  /* -------------
+     Reset & base
+     ------------- */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  /* -------------------------
+     Form: layout & container
+     ------------------------- */
+  .login-form {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem 1.5rem;
+    background: var(--input-dark);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  }
+  
+  @media (min-width: 480px) {
+    .login-form {
+      max-width: 360px;
+    }
+  }
+  
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* --------------------
+     Inputs & placeholders
+     -------------------- */
+  .field--light input {
+    width: 100%;
+    background: var(--input-light);
+    color: #000;
+    border: none;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: var(--radius);
+  }
+  
+  .field--light input::placeholder {
+    color: #666;
+  }
+  
+  /* --------------
+     Select + phone
+     -------------- */
+  .phone-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .phone-group select,
+  .phone-group input {
+    background: var(--input-dark);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: var(--radius);
+  }
+  
+  .phone-group select {
+    flex: 0 0 auto;
+    min-width: 90px;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg' fill='%23ffffff'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 10px 6px;
+    padding-right: 2rem;
+  }
+  
+  .phone-group input {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  
+  .phone-group input::placeholder {
+    color: var(--muted);
+  }
+  
+  /* ---------
+     Button
+     --------- */
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  
+  .btn-primary:hover {
+    background: var(--accent-hover);
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+  
+  /* ----------------
+     Footer / links
+     ---------------- */
+  .footer-text {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  
+  .footer-text a {
+    color: var(--accent);
+    text-decoration: none;
+  }
