@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phone Verification</title>
+  <link rel="stylesheet" href="../../../styles-sheets/auth/verification/opt-verification.css" />
+</head>
+<body>
+  <main class="otp-wrapper">
+    <h2 class="otp-title">Phone Verification</h2>
+    <p class="otp-sub">
+      Enter 6 digit verification code sent to your phone number
+    </p>
+
+    <form class="otp-form" action="#">
+      <div class="otp-group">
+        <input maxlength="1" type="tel" required />
+        <input maxlength="1" type="tel" required />
+        <input maxlength="1" type="tel" required />
+        <input maxlength="1" type="tel" required />
+        <input maxlength="1" type="tel" required />
+        <input maxlength="1" type="tel" required />
+      </div>
+
+      <button class="btn-primary" type="submit">Verify</button>
+    </form>
+
+    <button class="resend" type="button">Resend Code</button>
+  </main>
+</body>
+</html>

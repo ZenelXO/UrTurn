@@ -1,0 +1,123 @@
+/* ======================================================================
+   File: otp-verification.css
+   Purpose: Stand‑alone stylesheet for the Phone Verification page
+   ====================================================================== */
+
+/* --------- Root variables (colors, radius) --------- */
+:root {
+    --bg: #2b2b2b;
+    --text: #ffffff;
+    --muted: #9ca3af;
+    --input-dark: #323232;
+    --border: #555555;
+    --accent: #ff8c00;
+    --accent-hover: #e57c00;
+    --radius: 0.5rem;
+  }
+  
+  /* --------- Basic reset --------- */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  /* --------- OTP container --------- */
+  .otp-wrapper {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    animation: fade 0.4s ease 1;
+  }
+  
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none;           }
+  }
+  
+  .otp-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .otp-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* --------- OTP input boxes --------- */
+  .otp-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .otp-group input {
+    width: 42px;
+    height: 48px;
+    text-align: center;
+    font-size: 1.25rem;
+    background: var(--input-dark);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+  }
+  
+  .otp-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  
+  /* --------- Primary button --------- */
+  .btn-primary {
+    width: 100%;
+    margin-top: 0.25rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  
+  .btn-primary:hover {
+    background: var(--accent-hover);
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+  
+  /* --------- Resend link --------- */
+  .resend {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 0.75rem;
+  }
+  
+  .resend:hover {
+    text-decoration: underline;
+  }
+  
