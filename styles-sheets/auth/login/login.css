@@ -145,6 +145,25 @@
   .btn-primary:active {
     transform: scale(0.97);
   }
+
+    /* ---------------- Divider ---------------- */
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 1.25rem 0;
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      background: var(--border);
+    }
+    .divider span {
+      margin: 0 0.75rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
   
   /* ----------------
      Footer / links
