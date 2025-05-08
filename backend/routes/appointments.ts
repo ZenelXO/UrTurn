@@ -1,5 +1,6 @@
 // routes/appointments.ts
 import express from 'express';
+import { authenticateUser } from '../src/auth/middleware';
 import {
   createAppointment,
   getAppointments,
@@ -7,6 +8,9 @@ import {
 } from '../controllers/appointments';
 
 const router = express.Router();
+
+router.use(authenticateUser);
+
 /**
  * @swagger
  * /appointments:

@@ -198,3 +198,26 @@
   /* ---------------- Disabled / loading ---------------- */
   .btn-continue[disabled] { background: rgba(125, 77, 255, 0.4); cursor: default; }
   .btn-continue.loading::after { content: "…"; }
+
+  .signup-wrapper input[type="email"],
+.signup-wrapper input[type="password"] {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-light);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 1rem;
+}
+
+.signup-wrapper input::placeholder {
+  color: var(--muted);
+}
+
+.signup-wrapper input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(125, 77, 255, 0.25);
+}
