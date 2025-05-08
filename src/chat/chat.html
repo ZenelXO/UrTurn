@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat con Alguien</title>
+  <link rel="stylesheet" href="../../styles-sheets/chat/chat.css" />
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">UrTurn Chat</div>
+    <div class="chat-box" id="chat-box">
+      <div class="message left">Hola, ¿cómo estás?</div>
+      <div class="message right">Bien, ¿y tú?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="message-input" placeholder="Escribe un mensaje..." />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("message-input");
+      const message = input.value.trim();
+      if (message !== "") {
+        const chatBox = document.getElementById("chat-box");
+        const newMessage = document.createElement("div");
+        newMessage.className = "message right";
+        newMessage.textContent = message;
+        chatBox.appendChild(newMessage);
+        input.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    }
+  </script>
+</body>
+</html>
