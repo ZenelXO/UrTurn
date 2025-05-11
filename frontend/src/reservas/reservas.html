@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Pro</title>
+  <link rel="stylesheet" href="../../styles-sheets/reservas/reservas.css" />
+</head>
+<body>
+  <header class="dashboard-header">
+    <nav class="tabs">
+      <button class="tab active">Pro responses</button>
+      <button class="tab">Confirmed</button>
+      <button class="tab">History</button>
+    </nav>
+    <div class="search-filter">
+      <input type="text" placeholder="Search..." class="search-input" />
+      <button class="filter-btn">Status</button>
+    </div>
+  </header>
+
+  <main class="cards-container">
+    <section class="appointment-card">
+      <div class="card-info">
+        <p class="service">Wash my hair and style it <span class="status pending">Pending</span></p>
+        <p class="details">My hair is long and I want it clean and braided.</p>
+        <div class="meta">
+          <span>🕒 3:00 PM</span>
+          <span>💰 $30-150</span>
+          <span>👥 4</span>
+          <span>📅 November 27, 2024</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="delete-btn">🗑️</button>
+      </div>
+    </section>
+
+    <!-- Repetir más tarjetas si es necesario -->
+  </main>
+</body>
+</html>
