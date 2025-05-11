@@ -18,7 +18,7 @@ document.getElementById('login-form')?.addEventListener('submit', async (e) => {
     const idToken = await userCredential.user.getIdToken();
 
     localStorage.setItem('token', idToken);
-    window.location.href = '/dashboard.html';
+    window.location.href = '../../../../index.html';
   } catch (error) {
     console.error('Login error:', error);
     alert(error.message || 'Credenciales incorrectas');

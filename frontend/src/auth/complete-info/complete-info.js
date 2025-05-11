@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (res.ok) {
         const data = await res.json();
         console.log('[Complete Info] Success response:', data);
-        window.location.href = '/dashboard.html';
+        window.location.href = '../../../../index.html';
       } else {
         const data = await res.json();
         console.error('[Complete Info] Error response:', data);
