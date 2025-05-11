@@ -17,7 +17,17 @@
 
   <main class="search-container">
     <h1>Buscar Negocios</h1>
-    <input type="text" placeholder="Busca un negocio, tipo o ubicación..." class="search-bar" />
+    <div class="search-controls">
+      <input type="text" id="search-input" placeholder="Buscar por nombre..." class="search-bar" />
+
+      <select id="type-filter" class="type-select">
+        <option value="">Todos los tipos</option>
+        <option value="Panadería">Panadería</option>
+        <option value="Barbería">Barbería</option>
+        <option value="Cafetería">Cafetería</option>
+        <!-- Añade más tipos aquí -->
+      </select>
+    </div>
 
     <section class="results">
       <!-- Resultado 1 -->

@@ -93,4 +93,46 @@
   .business-card p {
     color: #555;
   }
+
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar,
+.type-select {
+  padding: 0.8rem 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  height: 48px;
+}
+
+.search-bar:focus,
+.type-select:focus {
+  border-color: #55e6b2;
+}
+
+.search-bar {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.type-select {
+  flex: 1 1 200px;
+  max-width: 200px;
+  background-color: #fff;
+  appearance: none;
+  cursor: pointer;
+}
+
+.type-select option {
+  font-size: 1rem;
+}
+
+
   
