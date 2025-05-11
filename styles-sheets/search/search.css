@@ -1,0 +1,96 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Header como el que ya tienes */
+  header {
+    background-color: #89f9d0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-family: sans-serif;
+  }
+  
+  header .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  header nav a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Contenedor principal */
+  .search-container {
+    padding: 2rem;
+    font-family: sans-serif;
+  }
+  
+  .search-container h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    display: block;
+  }
+  
+  /* Tarjetas de negocio */
+  .results {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .business-card {
+    background-color: #e7fff6;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+  
+  .business-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .business-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .business-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .business-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .business-card p {
+    color: #555;
+  }
+  
