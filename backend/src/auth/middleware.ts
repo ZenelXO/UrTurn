@@ -1,11 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import { firebaseAuth } from './firebase';
 
-
 declare global {
   namespace Express {
     interface Request {
-      user?: any;
+      user?: { uid: string }; // puedes extender con más campos si lo necesitas
     }
   }
 }
@@ -15,18 +14,22 @@ export const authenticateUser = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const token = req.headers.authorization?.split('Bearer ')[1];
+  const authHeader = req.headers.authorization;
 
-  if (!token) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    console.warn('[Auth Middleware] No token provided');
     res.status(401).json({ error: 'Token no proporcionado' });
     return;
   }
 
+  const token = authHeader.split(' ')[1];
+
   try {
     const decodedToken = await firebaseAuth.verifyIdToken(token);
-    req.user = decodedToken;
+    req.user = { uid: decodedToken.uid }; // solo lo necesario para identificar al usuario
     next();
   } catch (error) {
+    console.error('[Auth Middleware] Token inválido:', error);
     res.status(401).json({ error: 'Token inválido' });
   }
 };
