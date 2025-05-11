@@ -8,65 +8,61 @@
 </head>
 <body>
 
-  <a href="#" class="back-link">← Back</a>
+  <a href="../signup/signup.html" class="back-link">← Back</a>
 
   <main class="info-wrapper">
     <h1>Complete your info</h1>
 
-    <!-- nombres -->
-    <label for="first">First Name</label>
-    <input id="first" type="text" placeholder="First Name" required>
+    <form id="complete-form">
+      <label for="first">First Name</label>
+      <input id="first" type="text" placeholder="First Name" required>
 
-    <label for="last">Last Name</label>
-    <input id="last" type="text" placeholder="Last Name" required>
+      <label for="last">Last Name</label>
+      <input id="last" type="text" placeholder="Last Name" required>
 
-    <!-- teléfono -->
-    <label>Phone Number</label>
-    <div class="row phone-group">
-      <select>
-        <option>🇺🇸 +1</option>
-        <option>🇪🇸 +34</option>
-      </select>
-      <input type="tel" placeholder="9194144977" required>
-    </div>
-
-    <!-- fecha -->
-    <label for="dob">Date of Birth</label>
-    <input id="dob" type="date" required>
-
-    <!-- país / estado -->
-    <div class="row">
-      <div class="col">
-        <label>Country</label>
-        <select><option>Choose country</option></select>
+      <label>Phone Number</label>
+      <div class="row phone-group">
+        <select id="country">
+          <option value="+1">🇺🇸 +1</option>
+          <option value="+34">🇪🇸 +34</option>
+        </select>
+        <input type="tel" id="phone" placeholder="9194144977" required>
       </div>
-      <div class="col">
-        <label>State</label>
-        <select><option>Choose state</option></select>
-      </div>
-    </div>
 
-    <!-- ciudad / zip -->
-    <div class="row">
-      <div class="col">
-        <label>City</label>
-        <input type="text" placeholder="City" required>
-      </div>
-      <div class="col">
-        <label>ZIP</label>
-        <input type="text" placeholder="zip" required>
-      </div>
-    </div>
+      <label for="dob">Date of Birth</label>
+      <input id="dob" type="date" required>
 
-    <!-- tos -->
-    <label class="tos">
-      <input type="checkbox" required>
-      By selecting Next, I agree to U-Turn terms of service, Payment Terms of Service & Privacy Policy.
-    </label>
+      <div class="row">
+        <div class="col">
+          <label for="countryName">Country</label>
+          <input type="text" id="countryName" required>
+        </div>
+        <div class="col">
+          <label for="state">State</label>
+          <input type="text" id="state" required>
+        </div>
+      </div>
 
-    <!-- botón -->
-    <button class="btn-next">Next</button>
+      <div class="row">
+        <div class="col">
+          <label for="city">City</label>
+          <input type="text" id="city" required>
+        </div>
+        <div class="col">
+          <label for="zip">ZIP</label>
+          <input type="text" id="zip" required>
+        </div>
+      </div>
+
+      <label class="tos">
+        <input type="checkbox" required />
+        By selecting Next, I agree to U-Turn terms of service, Payment Terms of Service & Privacy Policy.
+      </label>
+
+      <button class="btn-next" type="submit">Next</button>
+    </form>
   </main>
 
+  <script type="module" src="./complete-info.js"></script>
 </body>
 </html>
