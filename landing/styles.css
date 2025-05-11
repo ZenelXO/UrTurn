@@ -1,0 +1,253 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Variables de color */
+  :root {
+    --color-bg: #fff;
+    --color-text: #333;
+    --color-primary: #433A85;
+    --color-secondary: #732EE4;
+  }
+  
+  /* Tipografía y base */
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    scroll-behavior: smooth;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+  
+  /* Header */
+  .site-header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-menu a:hover {
+    color: var(--color-secondary);
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+  }
+  
+  .hero-section h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+  
+  /* Content Sections */
+  .section {
+    padding: 4rem 1rem;
+  }
+  
+  .section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* FAQs */
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Launch Section */
+  .launch-section {
+    background-color: #f9f6ff;
+    text-align: center;
+  }
+  
+  .launch-section p {
+    max-width: 600px;
+    margin: 1rem auto;
+  }
+  
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background: #5c23b4;
+  }
+  
+  /* Donar */
+  #donar {
+    text-align: center;
+  }
+  
+  #donar button {
+    margin-top: 1rem;
+  }
+  
+  /* Contacto */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .contact-form button {
+    background: var(--color-secondary);
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background: #5c23b4;
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-menu {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  
+    .hero-section h2 {
+      font-size: 2.2rem;
+    }
+  
+    .section h2 {
+      font-size: 1.6rem;
+    }
+  }
+/* Animaciones suaves */
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .section,
+  .hero-section,
+  .faq-item,
+  .launch-section,
+  .contact-form,
+  .site-footer {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+  }
+  
+  /* Transiciones para interacciones */
+  a,
+  button,
+  input,
+  textarea {
+    transition: all 0.3s ease;
+  }
+  
+  button:hover,
+  .btn-primary:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Mejorar responsividad del formulario */
+  .contact-form input,
+  .contact-form textarea {
+    transition: border-color 0.3s;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--color-secondary);
+    outline: none;
+  }
+    
