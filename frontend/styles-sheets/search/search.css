@@ -1,0 +1,229 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fc;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+header nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #e0e0e0;
+}
+
+.search-container {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.search-container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.search-bar,
+.type-select {
+  padding: 0.8rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  height: 48px;
+  background-color: white;
+}
+
+.search-bar:focus,
+.type-select:focus {
+  border-color: #6a11cb;
+}
+
+.search-bar {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.type-select {
+  flex: 1 1 200px;
+  max-width: 200px;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Dropdown multiselect */
+.dropdown-multiselect {
+  position: relative;
+  width: 220px;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.dropdown-header {
+  background-color: white;
+  padding: 0.8rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s ease;
+}
+
+.dropdown-header:hover {
+  border-color: #6a11cb;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-options label {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.dropdown-multiselect.active .dropdown-options {
+  display: block;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.business-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.business-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.business-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.business-card h2 {
+  font-size: 1.2rem;
+  color: #6a11cb;
+  margin-bottom: 0.3rem;
+}
+
+.business-card p {
+  color: #555;
+}
+
+.business-card.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilo para checkboxes personalizados */
+.dropdown-options input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #6a11cb;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.dropdown-options input[type="checkbox"]:checked {
+  background-color: #6a11cb;
+  border-color: #6a11cb;
+}
+
+.dropdown-options input[type="checkbox"]::before {
+  content: "✓";
+  color: white;
+  font-size: 13px;
+  position: absolute;
+  top: -2px;
+  left: 3px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.dropdown-options input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
