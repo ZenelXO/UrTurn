@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
@@ -7,7 +6,7 @@ const firebaseConfig = {
   authDomain: "urturn-9ff90.firebaseapp.com",
   databaseURL: "https://urturn-9ff90-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "urturn-9ff90",
-  storageBucket: "urturn-9ff90.firebaseapp.com",
+  storageBucket: "urturn-9ff90.appspot.com",
   messagingSenderId: "585989531529",
   appId: "1:585989531529:web:e9258cee259eb084816358",
   measurementId: "G-C5NG3RB71E"
@@ -20,7 +19,10 @@ let negocios = [];
 
 async function loadBusiness() {
   const querySnapshot = await getDocs(collection(db, "business"));
-  negocios = querySnapshot.docs.map(doc => doc.data());
+  negocios = querySnapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
 
   const tiposUnicos = [...new Set(negocios.map(n => n.type))];
   const container = document.getElementById("type-checkboxes");
@@ -28,7 +30,6 @@ async function loadBusiness() {
   tiposUnicos.forEach(tipo => {
     const label = document.createElement("label");
     label.innerHTML = `<input type="checkbox" value="${tipo}" checked /> ${tipo}`;
-
     container.appendChild(label);
   });
 
@@ -36,7 +37,7 @@ async function loadBusiness() {
 }
 
 function normalize(text) {
-  return text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, '');
+  return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '');
 }
 
 function getActiveTypes() {
@@ -68,6 +69,11 @@ function renderBusinesses(data) {
         </div>
       </div>
     `;
+
+    card.addEventListener("click", () => {
+      window.location.href = `../request/request.html?id=${business.id}`;
+    });
+
     container.appendChild(card);
   });
 }

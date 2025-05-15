@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Negocio</title>
+  <link rel="stylesheet" href="../../styles-sheets/request/request.css" />
+  <script type="module" src="./request.js" defer></script>
+</head>
+<body>
+  <div class="business-page">
+    <button class="back-button">←</button>
+
+    <section class="card business-card">
+      <h1 id="business-name">Nombre del Negocio</h1>
+      <div class="rating" id="business-rating">⭐ 0 · 0 valoraciones</div>
+      <div class="business-image-container">
+        <div class="image-loader" id="image-loader"></div>
+        <img id="business-image" class="business-image" src="" alt="Imagen negocio" />
+      </div>
+
+      <p id="business-type" class="muted">Tipo de negocio</p>
+      <p id="business-location" class="muted">Ubicación</p>
+      <p id="business-hours" class="muted">Horario</p>
+      <p id="business-contact" class="muted">Contacto</p>
+
+      <div class="actions">
+        <button class="primary-btn" id="toggle-form">Reservar</button>
+        <button class="secondary-btn">Añadir a favoritos</button>
+      </div>
+
+      <div class="form-toggle" id="form-container">
+        <h2>Reservar en este negocio</h2>
+        <form id="reserve-form">
+          <label>Fecha:</label>
+          <input type="date" id="date" required />
+
+          <label>Hora:</label>
+          <input type="time" id="time" required />
+
+          <label>Número de personas:</label>
+          <input type="number" id="people" min="1" required />
+
+          <label>Descripción:</label>
+          <textarea id="description" placeholder="Opcional..."></textarea>
+
+          <button type="submit" class="primary-btn">Confirmar reserva</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="card description">
+      <h2>Sobre el negocio</h2>
+      <p id="business-description">Cargando descripción...</p>
+    </section>
+
+    <section class="card review-section">
+      <h2>Reseñas</h2>
+      <div class="review-list">
+        <p class="muted">Aún no hay reseñas.</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
