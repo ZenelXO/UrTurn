@@ -1,35 +1,83 @@
-// controllers/appointments.ts
+// src/controllers/appointments.ts
 import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import { appointments, Appointment } from '../models/appointments';
+import { Appointment } from '../models/appointments';
+import { firestore } from '../auth/firebase';
 
-export const createAppointment = (req: Request, res: Response) => {
-  const { uid, date } = req.body;
+// Crear nueva reserva
+export const createAppointment = async (req: Request, res: Response): Promise<void> => {
+  const { uid, title, description, time, price, people, date } = req.body;
+
+  if (!uid || !title || !description || !time || !price || !people || !date) {
+    res.status(400).json({ error: 'Missing required fields' });
+    return;
+  }
+
   const newAppointment: Appointment = {
-    id: uuidv4(),
     uid,
+    title,
+    description,
+    time,
+    price,
+    people,
     date,
-    status: 'active',
+    status: 'pending',
   };
-  appointments.push(newAppointment);
-  res.status(201).json(newAppointment);
+
+  try {
+    const docRef = await firestore.collection('appointments').add(newAppointment);
+    res.status(201).json({ id: docRef.id, ...newAppointment });
+  } catch (error) {
+    console.error('Error creating appointment:', error);
+    res.status(500).json({ error: 'Error creating appointment' });
+  }
 };
 
-export const getAppointments = (req: Request, res: Response) => {
+// Obtener reservas de un usuario
+export const getAppointments = async (req: Request, res: Response): Promise<void> => {
   const { uid } = req.query;
-  const result = appointments.filter(app => app.uid === uid && app.status === 'active');
-  res.json(result);
+
+  if (!uid || typeof uid !== 'string') {
+    res.status(400).json({ error: 'Missing or invalid uid parameter' });
+    return;
+  }
+
+  try {
+    const snapshot = await firestore
+      .collection('appointments')
+      .where('uid', '==', uid)
+      .where('status', 'in', ['pending', 'active', 'canceled']) 
+      .get();
+
+    const appointments: Appointment[] = snapshot.docs.map((doc: FirebaseFirestore.QueryDocumentSnapshot) => ({
+      id: doc.id,
+      ...doc.data(),
+    } as Appointment));
+
+    res.json(appointments);
+  } catch (error) {
+    console.error('Error fetching appointments:', error);
+    res.status(500).json({ error: 'Error fetching appointments' });
+  }
 };
 
-export const cancelAppointment = (req: Request, res: Response): void => {
-    const { id } = req.params as { id: string };
-    const appointment = appointments.find(app => app.id === id);
-  
-    if (!appointment) {
-      res.status(404).json({ error: 'Not found' });
+// Cancelar reserva
+export const cancelAppointment = async (req: Request, res: Response): Promise<void> => {
+  const { id } = req.params;
+
+  try {
+    const ref = firestore.collection('appointments').doc(id);
+    const doc = await ref.get();
+
+    if (!doc.exists) {
+      res.status(404).json({ error: 'Appointment not found' });
       return;
     }
-  
-    appointment.status = 'canceled';
-    res.json({ message: 'Canceled', appointment });
-  };
+
+    await ref.update({ status: 'canceled' });
+    res.json({ message: 'Appointment canceled' });
+  } catch (error) {
+    console.error('Error canceling appointment:', error);
+    res.status(500).json({ error: 'Error canceling appointment' });
+  }
+};

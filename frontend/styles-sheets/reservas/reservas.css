@@ -7,6 +7,10 @@
     --radius: 0.75rem;
     --pending-bg: #fef3c7;
     --pending-text: #92400e;
+    --active-bg: #d1fae5;
+    --active-text: #065f46;
+    --canceled-bg: #fee2e2;
+    --canceled-text: #991b1b;
   }
   
   body {
@@ -109,6 +113,25 @@
     border-radius: 999px;
     margin-left: 0.5rem;
   }
+
+  .status.active {
+  background: var(--active-bg); 
+  color: var(--active-text);     
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  margin-left: 0.5rem;  
+}
+
+.status.canceled {
+  background: var(--canceled-bg); 
+  color: var(--canceled-text);
+  padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      margin-left: 0.5rem;       
+}
+
   
   .details {
     color: var(--muted);
