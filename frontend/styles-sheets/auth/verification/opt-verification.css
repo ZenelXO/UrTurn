@@ -39,6 +39,11 @@
     width: 100%;
     max-width: 320px;
     text-align: center;
+    padding: 1.75rem 1.5rem;
+    background: var(--input-dark);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
     animation: fade 0.4s ease 1;
   }
   

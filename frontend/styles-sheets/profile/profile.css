@@ -13,6 +13,36 @@ body {
     height: 100vh;
 }
 
+  .mainBodyContainer{
+    margin: 0;
+    padding: 0;
+  }
+
+  .mainHeader{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo{
+    margin: 3%;
+  }
+
+  .nav-menu{
+    display: flex;
+    gap: 5.5rem;
+    list-style: none;
+    margin: 3%;
+  }
+
+  .nav-menu a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+  }
+
 .perfil {
     background-color: white;
     border-radius: 10px;

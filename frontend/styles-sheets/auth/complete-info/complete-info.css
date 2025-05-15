@@ -1,0 +1,157 @@
+/* ======================================================================
+   File: complete-info.css – dark-theme card for "Complete your info" page
+   v3 – Checkbox styled separately to avoid generic input rules
+   ====================================================================== */
+
+   :root {
+    --bg-page: #0f172a;        /* full-page dark */
+    --card-bg: #1e293b;        /* card background */
+    --text-main: #f1f5f9;      /* main text */
+    --text-muted: #94a3b8;     /* secondary */
+    --border: #334155;         /* borders */
+    --error: #ef4444;          /* invalid red */
+    --radius: 0.65rem;
+  
+    /* brand / accent */
+    --accent: #7d4dff;
+    --accent-dark: #562bd1;
+  }
+  
+  /* ---------- Reset & base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  /* ---------- Card wrapper ---------- */
+  .info-wrapper {
+    width: 100%;
+    max-width: 380px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 1.75rem 2.5rem;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+  }
+  
+  /* back arrow */
+  .back-link {
+    position: fixed;
+    top: 1.25rem;
+    left: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: .95rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  /* heading */
+  h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0 0 1.75rem;
+  }
+  
+  /* labels */
+  label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+  
+  /* ---------- Form controls ---------- */
+  /* exclude checkbox from generic inputs */
+  input:not([type="checkbox"]),
+  select {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background: var(--bg-page);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  
+  /* highlight invalid */
+  input:not([type="checkbox"]):invalid,
+  select:invalid {
+    border-color: var(--error);
+  }
+  
+  input:not([type="checkbox"]):focus:invalid,
+  select:focus:invalid {
+    box-shadow: 0 0 0 3px rgba(239,68,68,0.35);
+  }
+  
+  input:not([type="checkbox"]):focus,
+  select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(125, 77, 255, .25);
+  }
+  
+  /* layout helpers */
+  .row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .row > .col { flex: 1 1 0; }
+  
+  /* date picker icon */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
+  
+  /* ---------- TOS checkbox ---------- */
+  .tos {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 1.25rem;
+  }
+  
+  .tos input[type="checkbox"] {
+    margin-top: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--accent); /* modern browsers */
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  
+  /* ---------- Continue button ---------- */
+  .btn-next {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    border-radius: var(--radius);
+    background: var(--accent);
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+    margin-top: 1.5rem;
+  }
+  
+  .btn-next:hover  { background: var(--accent-dark); }
+  .btn-next:active { transform: scale(.97); }

@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: gray;
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,8 +8,39 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  .mainBodyContainer{
+    margin: 0;
+    padding: 0;
+  }
+
+  .mainHeader{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo{
+    margin: 3%;
+  }
+
+  .nav-menu{
+    display: flex;
+    gap: 5.5rem;
+    list-style: none;
+    margin: 3%;
+  }
+
+  .nav-menu a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+  }
   
   .chat-container {
+    margin-top: 5%;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

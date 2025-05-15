@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat con Alguien</title>
+  <title>UrTurn Chat</title>
   <link rel="stylesheet" href="../../styles-sheets/chat/chat.css" />
 </head>
 <body>
+  <div class="mainBodyContainer">
+    <header>
+    <div class="mainHeader">
+      <h1 class="logo">U-Turn</h1>
+      <ul class="nav-menu">
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../../src/profile/profile.html">Profile</a></li>
+      </ul>
+    </div>
+  </header>
+
   <div class="chat-container">
     <div class="chat-header">UrTurn Chat</div>
     <div class="chat-box" id="chat-box">
@@ -17,6 +28,7 @@
       <input type="text" id="message-input" placeholder="Escribe un mensaje..." />
       <button onclick="sendMessage()">Enviar</button>
     </div>
+  </div>
   </div>
   
   <script>
