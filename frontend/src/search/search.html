@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buscar Negocios - UrTurn</title>
+  <link rel="stylesheet" href="../../styles-sheets/search/search.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">UrTurn</div>
+    <nav>
+      <a href="#">Chat</a>
+      <a href="#">Profile</a>
+    </nav>
+  </header>
+
+  <main class="search-container">
+    <h1>Buscar Negocios</h1>
+    <div class="search-controls">
+      <input type="text" id="search-input" placeholder="Buscar por nombre..." class="search-bar" />
+
+      <div class="dropdown-multiselect">
+        <div class="dropdown-header">Tipos de negocio ▾</div>
+        <div class="dropdown-options" id="type-checkboxes">
+        </div>
+      </div>
+
+      <select id="sort-select" class="type-select">
+        <option value="az">Orden A-Z</option>
+        <option value="za">Orden Z-A</option>
+      </select>
+    </div>
+
+    <section class="results">
+    </section>
+  </main>
+</body>
+<script type="module" src="search.js"></script>
+</html>

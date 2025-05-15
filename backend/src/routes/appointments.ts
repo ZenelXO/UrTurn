@@ -1,6 +1,6 @@
 // routes/appointments.ts
 import express from 'express';
-import { authenticateUser } from '../src/auth/middleware';
+import { authenticateUser } from '../auth/middleware';
 import {
   createAppointment,
   getAppointments,
