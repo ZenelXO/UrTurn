@@ -8,7 +8,7 @@ import { firestore } from '../auth/firebase';
 export const createAppointment = async (req: Request, res: Response): Promise<void> => {
   const { uid, title, description, time, price, people, date } = req.body;
 
-  if (!uid || !title || !description || !time || !price || !people || !date) {
+  if (!uid || !title || !time || !price || !people || !date) {
     res.status(400).json({ error: 'Missing required fields' });
     return;
   }
